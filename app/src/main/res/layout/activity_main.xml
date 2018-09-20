@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg__1"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+    >
+
+    <LinearLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_1"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_4"
+             />
+
+        <ImageView
+            android:id="@+id/btn_2"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_9"
+            />
+
+        <ImageView
+            android:id="@+id/btn_3"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_19"
+            />
+
+        <ImageView
+            android:id="@+id/btn_4"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_2"
+             />
+
+
+    </LinearLayout>
+<!-- style="@style/Springboard" -->
+    <com.panxiaohe.springboard.library.MenuView
+        android:id="@+id/springboard"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_layout"
+        android:layout_centerInParent="true"
+        android:paddingTop="30dp"
+        android:paddingBottom="40dp"
+        app:column_count="4"
+        app:default_folder_name="@string/folder_name"
+        app:delete_icon="@drawable/icon_delete"
+        app:divider_color="@color/default_divider_color"
+        app:divider_width="0dp"
+        app:folder_column_count="3"
+        app:folder_edittext_textcolor="@android:color/black"
+        app:folder_edittext_textsize="16sp"
+        app:folder_row_count="3"
+        app:is_last_item_stable="true"
+        app:row_count="5"
+        />
+
+    <!--
+     app:folder_dialog_background="@android:color/transparent"
+    app:folder_edittext_background="@drawable/ugly_edittext_bg"
+        app:folder_view_background="@drawable/ugly_folder_background"-->
+    <!--app:stable_header_count="3"-->
+    <!--app:divider_color =""-->
+</RelativeLayout>

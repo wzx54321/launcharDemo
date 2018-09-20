@@ -1,0 +1,3 @@
+[submodule "XinFrameworkLib"]
+	path = XinFrameworkLib
+	url = git@github.com:wzx54321/XinFrameworkLib.git

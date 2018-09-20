@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#90000000">
+
+    <LinearLayout
+        android:id="@+id/folder_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/folder_background"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <com.panxiaohe.springboard.library.FolderView
+            android:id="@+id/container"
+            style="@style/Springboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/folder_container"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="32dp"
+        android:minWidth="40dp"
+        android:padding="10dp"
+        android:layout_marginRight="32dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/folder_background"
+        android:gravity="center"
+        android:imeOptions="actionDone"
+        android:inputType="text"
+        android:maxLength="10"
+        android:singleLine="true"
+        tools:text="aaaaaaaa"/>
+</RelativeLayout>
