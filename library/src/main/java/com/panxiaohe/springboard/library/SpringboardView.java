@@ -740,6 +740,12 @@ public abstract class SpringboardView extends ViewGroup {
 
     public abstract void onItemClick(int position);
 
+
+    public int  getPageCount(){
+       return (int) Math.ceil(getChildCount() * 1.0 / getPageItemCount());
+    }
+
+
     /**
      * 计算有几页
      */

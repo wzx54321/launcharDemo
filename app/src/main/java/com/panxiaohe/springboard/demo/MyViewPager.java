@@ -21,29 +21,5 @@ public class MyViewPager extends ViewPager {
     }
 
 
-  /*  @Override
-    protected boolean canScroll(View v, boolean checkV, int dx, int x, int y) {
-        if (v instanceof SpringboardView) {
-          *//*  final SpringboardView group = (SpringboardView) v;
-            final int scrollX = v.getScrollX();
-            final int scrollY = v.getScrollY();
-            final int count = group.getChildCount();
-            // Count backwards - let topmost views consume scroll distance first.
-            for (int i = count - 1; i >= 0; i--) {
-                // TODO: Add versioned support here for transformed views.
-                // This will not work for transformed views in Honeycomb+
-                final View child = group.getChildAt(i);
-                if (x + scrollX >= child.getLeft()
-                        && x + scrollX < child.getRight()
-                        && y + scrollY >= child.getTop()
-                        && y + scrollY < child.getBottom()) {
-                    return true;
-                }
-            }*//*
 
-            return checkV && v.canScrollHorizontally(-dx);
-        }
-
-        return super.canScroll(v, checkV, dx, x, y);
-    }*/
 }

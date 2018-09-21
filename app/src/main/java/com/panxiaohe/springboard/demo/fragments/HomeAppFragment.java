@@ -2,11 +2,11 @@ package com.panxiaohe.springboard.demo.fragments;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 import com.panxiaohe.springboard.demo.MyAdapter;
 import com.panxiaohe.springboard.demo.MyButtonItem;
 import com.panxiaohe.springboard.demo.R;
+import com.panxiaohe.springboard.library.DotView;
 import com.panxiaohe.springboard.library.FavoritesItem;
 import com.panxiaohe.springboard.library.MenuView;
 import com.panxiaohe.springboard.library.SpringboardView;
@@ -14,6 +14,7 @@ import com.panxiaohe.springboard.library.SpringboardView;
 import java.util.ArrayList;
 
 import xin.framework.base.fragment.XinFragment;
+import xin.framework.utils.android.Loger.Log;
 import xin.framework.utils.android.view.ViewFinder;
 
 /**
@@ -24,6 +25,7 @@ import xin.framework.utils.android.view.ViewFinder;
 public class HomeAppFragment extends XinFragment {
     private ArrayList<MyButtonItem> buttons;
     private MyAdapter myAdapter;
+    private DotView mIndicator;
 
     @Override
     protected void initVariables(Bundle bundle) {
@@ -90,9 +92,16 @@ public class HomeAppFragment extends XinFragment {
     @Override
     public void bindUI(View rootView) {
         initVariables(null);
-        MenuView springboard = ViewFinder.find(rootView, R.id.springboard);
+
+        //
+        mIndicator = ViewFinder.find(rootView, R.id.page_indicator);
+        //
+        final MenuView springboard = ViewFinder.find(rootView, R.id.springboard);
         myAdapter = new MyAdapter(buttons);
         springboard.setAdapter(myAdapter);
+        mIndicator.init();
+
+
         springboard.setOnItemClickListener(new SpringboardView.OnItemClickListener() {
             @Override
             public void onItemClick(FavoritesItem item) {
@@ -103,14 +112,20 @@ public class HomeAppFragment extends XinFragment {
         springboard.setOnPageChangedListener(new SpringboardView.OnPageChangedListener() {
             @Override
             public void onPageScroll(int from, int to) {
-                Toast.makeText(getContext(), " springboardview scroll from page#" + from + " to page#" + to, Toast.LENGTH_SHORT).show();
+                Log.d(" springboardview scroll from page#" + from + " to page#" + to);
+                mIndicator.setCurrentPage(to);
             }
 
             @Override
             public void onPageCountChange(int oldCount, int newCount) {
-                Toast.makeText(getContext(), "springboardview page count has changed from #" + oldCount + " to #" + newCount, Toast.LENGTH_SHORT).show();
+                Log.d("springboardview page count has changed from #" + oldCount + " to #" + newCount);
+                mIndicator.setPages(newCount);
+                mIndicator.setCurrentPage(springboard.getmCurScreen());
             }
         });
+
+        mIndicator.setPages(springboard.getPageCount());
+        mIndicator.setCurrentPage(0);
     }
 
     @Override
@@ -122,7 +137,6 @@ public class HomeAppFragment extends XinFragment {
     public Object newP() {
         return null;
     }
-
 
 
 }
