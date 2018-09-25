@@ -3,8 +3,6 @@
  */
 package com.panxiaohe.springboard.demo;
 
-import java.io.ByteArrayOutputStream;
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
@@ -17,21 +15,20 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.Base64;
 
+import java.io.ByteArrayOutputStream;
+
 /**
  * @author panxiaohe
  */
-public class ImageUtil
-{
+public class ImageUtil {
 
     private Context context;
 
-    public ImageUtil(Context context)
-    {
+    public ImageUtil(Context context) {
         this.context = context;
     }
 
-    private static Drawable createDrawable(Drawable d, Paint p)
-    {
+    private static Drawable createDrawable(Drawable d, Paint p) {
 
         BitmapDrawable bd = (BitmapDrawable) d;
         Bitmap b = bd.getBitmap();
@@ -45,8 +42,7 @@ public class ImageUtil
     /**
      * 设置Selector。 本次只增加点击变暗的效果，注释的代码为更多的效果
      */
-    public static StateListDrawable createSLD(Drawable drawable)
-    {
+    public static StateListDrawable createSLD(Drawable drawable) {
         StateListDrawable bg = new StateListDrawable();
         Paint p = new Paint();
         p.setColor(0x40222222); // Paint ARGB色值，A = 0x40 不透明。RGB222222 暗色
@@ -89,8 +85,7 @@ public class ImageUtil
 //		}
 //	}
 //
-    public static Drawable getStateListDrawable(Drawable background)
-    {
+    public static Drawable getStateListDrawable(Drawable background) {
         // TODO Auto-generated method stub
         return createSLD(background);
     }
@@ -107,15 +102,12 @@ public class ImageUtil
      * @param context   包名
      * @return
      */
-    public static StateListDrawable getStateListDrawable(int imageName, Context context)
-    {
+    public static StateListDrawable getStateListDrawable(int imageName, Context context) {
         Drawable drawable;
         drawable = context.getResources().getDrawable(imageName);
-        if (drawable != null)
-        {
+        if (drawable != null) {
             return createSLD(drawable);
-        } else
-        {
+        } else {
             return null;
         }
     }
@@ -127,10 +119,8 @@ public class ImageUtil
      * @return
      * @author guo_fenghua
      */
-    public static String bitmaptoString(Bitmap bitmap)
-    {
-        if (bitmap == null)
-        {
+    public static String bitmaptoString(Bitmap bitmap) {
+        if (bitmap == null) {
             return "";
         }
         String string = null;
@@ -148,16 +138,13 @@ public class ImageUtil
      * @return
      * @author guo_fenghua
      */
-    public static Bitmap stringtoBitmap(String string)
-    {
+    public static Bitmap stringtoBitmap(String string) {
         Bitmap bitmap = null;
-        try
-        {
+        try {
             byte[] bitmapArray;
             bitmapArray = Base64.decode(string, Base64.DEFAULT);
             bitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

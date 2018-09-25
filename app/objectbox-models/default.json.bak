@@ -1,0 +1,68 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:7920859358992838767",
+      "lastPropertyId": "9:6518810849563843129",
+      "name": "MyAppItem",
+      "properties": [
+        {
+          "id": "1:4362726552351084377",
+          "name": "id"
+        },
+        {
+          "id": "2:4382101239681382225",
+          "name": "actionId"
+        },
+        {
+          "id": "3:4515771380647268498",
+          "name": "name"
+        },
+        {
+          "id": "4:2606320626292323376",
+          "name": "isDisplay"
+        },
+        {
+          "id": "5:6603999689224635622",
+          "name": "sort"
+        },
+        {
+          "id": "6:3301157092628549574",
+          "name": "folderSort"
+        },
+        {
+          "id": "7:648177730392509263",
+          "name": "iconUrl"
+        },
+        {
+          "id": "8:4211429768092431738",
+          "name": "iconResName"
+        },
+        {
+          "id": "9:6518810849563843129",
+          "indexId": "1:7010666215070783321",
+          "name": "parentId"
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:8577829273308366249",
+          "name": "subApps"
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "1:7920859358992838767",
+  "lastIndexId": "1:7010666215070783321",
+  "lastRelationId": "1:8577829273308366249",
+  "lastSequenceId": "0:0",
+  "modelVersion": 4,
+  "modelVersionParserMinimum": 4,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}

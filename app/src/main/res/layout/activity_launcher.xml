@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-    <com.panxiaohe.springboard.demo.MyViewPager
+    <android.support.v4.view.ViewPager
         android:id="@+id/page_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

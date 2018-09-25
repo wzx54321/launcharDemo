@@ -1,16 +1,16 @@
-package com.panxiaohe.springboard.demo.entity;
+package com.panxiaohe.springboard.demo.bean;
 
 import android.support.annotation.DrawableRes;
 
+import com.panxiaohe.springboard.demo.M.MyAppBox;
 import com.panxiaohe.springboard.library.FavoritesItem;
-
-import java.util.List;
 
 import io.objectbox.annotation.Backlink;
 import io.objectbox.annotation.Entity;
 import io.objectbox.annotation.Id;
 import io.objectbox.annotation.Transient;
 import io.objectbox.relation.ToMany;
+import io.objectbox.relation.ToOne;
 import xin.framework.utils.android.view.ResFinder;
 
 /**
@@ -50,8 +50,10 @@ public class MyAppItem extends FavoritesItem {
 
     private String iconResName;
 
-     @Backlink
-     public ToMany<MyAppItem> subApps;
+    @Backlink
+    public ToMany<MyAppItem> subApps;
+
+    public ToOne<MyAppItem> parent;
 
 
     public long getId() {
@@ -93,9 +95,9 @@ public class MyAppItem extends FavoritesItem {
     public @DrawableRes
     int getIcon() {
 
-        if (icon == 0) {
-            icon = ResFinder.findDrawableResByName(iconResName);
-        }
+
+        icon = ResFinder.findDrawableResByName(iconResName);
+
         return icon;
     }
 
@@ -123,10 +125,9 @@ public class MyAppItem extends FavoritesItem {
     }
 
 
-    public List<MyAppItem> getSubApps() {
+    public ToMany<MyAppItem> getSubApps() {
         return subApps;
     }
-
 
 
     public boolean isDisplay() {
@@ -148,7 +149,7 @@ public class MyAppItem extends FavoritesItem {
 
     @Override
     public boolean isFolder() {
-        return subApps != null && !subApps.isEmpty();
+        return subApps != null && subApps.size() != 0;
     }
 
     @Override
@@ -157,14 +158,16 @@ public class MyAppItem extends FavoritesItem {
         if (!isFolder()) {
             MyAppItem newItem = new MyAppItem();
             newItem.copy(this);
-
+            newItem.id = this.id;
             setActionId("-1");
             setIconResName("");
             setName(defaultFolderName);
+
             subApps.add(newItem);
 
         }
         subApps.add((MyAppItem) item);// 当前的改变了
+
     }
 
     @Override
@@ -182,9 +185,15 @@ public class MyAppItem extends FavoritesItem {
         subApps.remove(position);
 
         if (subApps.size() == 1) {
-            copy(subApps.get(0));
-            subApps = null;
+            copy(subApps.get(0));// copy 内存使用
+            long tempId = subApps.get(0).id;
+            subApps.clear();
+            // setDisplay(false);
+            MyAppBox box = new MyAppBox();
+            box.update(this);
+            box.delete(this);
 
+            this.id = tempId;
         }
 
 
@@ -197,7 +206,7 @@ public class MyAppItem extends FavoritesItem {
         this.iconUrl = myButtonItem.iconUrl;//
         this.iconResName = myButtonItem.iconResName;//
         this.isDisplay = myButtonItem.isDisplay;//
-        this.id = myButtonItem.id;
+
     }
 
 
@@ -235,4 +244,24 @@ public class MyAppItem extends FavoritesItem {
     public void setFolderSort(int folderSort) {
         this.folderSort = folderSort;
     }
+
+
+    @Override
+    public String toString() {
+        return "MyAppItem{" +
+                "id=" + id +
+                ", actionId='" + actionId + '\'' +
+                ", name='" + name + '\'' +
+                ", isDisplay=" + isDisplay +
+                ", sort=" + sort +
+                ", folderSort=" + folderSort +
+                ", icon=" + icon +
+                ", iconUrl='" + iconUrl + '\'' +
+                ", iconResName='" + iconResName + '\'' +
+                ", subApps=" + subApps +
+                ", parent=" + parent +
+                '}';
+    }
+
+
 }

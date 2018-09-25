@@ -1,8 +1,11 @@
-package com.panxiaohe.springboard.demo;
+package com.panxiaohe.springboard.demo.activities;
 
 import android.os.Bundle;
 import android.view.View;
 
+import com.panxiaohe.springboard.demo.R;
+import com.panxiaohe.springboard.demo.adapter.MyAdapter;
+import com.panxiaohe.springboard.demo.bean.MyAppItem;
 import com.panxiaohe.springboard.library.FavoritesItem;
 import com.panxiaohe.springboard.library.MenuView;
 import com.panxiaohe.springboard.library.SpringboardView;
@@ -22,7 +25,7 @@ public class MainActivity extends XinActivity {
     public void prepareData() {
         super.prepareData();
         buttons = new ArrayList<>();
-        buttons.add(new MyAppItem("0", "24小时图书馆", R.drawable.icon_1));
+      /*  buttons.add(new MyAppItem("0", "24小时图书馆", R.drawable.icon_1));
         buttons.add(new MyAppItem("1", "12345", R.drawable.icon_2));
         buttons.add(new MyAppItem("2", "不动产状况", R.drawable.icon_3));
         buttons.add(new MyAppItem("3", "车主服务", R.drawable.icon_4));
@@ -71,7 +74,7 @@ public class MainActivity extends XinActivity {
         buttons.add(new MyAppItem("46", "政民互动", R.drawable.icon_47));
         buttons.add(new MyAppItem("47", "职业健康查询", R.drawable.icon_48));
         buttons.add(new MyAppItem("48", "中考查询", R.drawable.icon_49));
-        buttons.add(new MyAppItem("49", "周边服务", R.drawable.icon_50));
+        buttons.add(new MyAppItem("49", "周边服务", R.drawable.icon_50));*/
     }
 
     @Override

@@ -333,7 +333,7 @@ public class MenuView extends SpringboardView {
             editText.setTextColor(folder_editText_textColor);
         }
         editText.setTextSize(TypedValue.COMPLEX_UNIT_PX, folder_editText_textSize);
-        editText.setText(info.getActionName());
+        editText.setText(info.getName());
 
         FolderView layout = (FolderView) folderView.findViewById(R.id.container);
 

@@ -45,6 +45,8 @@ public abstract class SpringboardView extends ViewGroup {
      * 适配器
      */
     protected SpringboardAdapter mAdapter;
+
+
     /**
      * 总页面数量
      * will count totalPage at setAdapter,merge into Folder,delete item,add item,remove out Folder

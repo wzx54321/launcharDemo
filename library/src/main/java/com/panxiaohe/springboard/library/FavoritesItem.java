@@ -13,12 +13,13 @@ public abstract class FavoritesItem implements Serializable {
 
     public abstract boolean isFolder();
 
-    public abstract String getActionName();
+    public abstract String getName();
 
-    public abstract void setActionName(String name);
+    public abstract void setName(String name);
 
     public abstract void setActionId(String id);
 
+    public abstract long getId() ;
     /**
      * 如果this是文件夹,返回"-1"
      * 否则请返回该按钮的唯一识别.
@@ -28,9 +29,9 @@ public abstract class FavoritesItem implements Serializable {
     /**
      * 从文件夹中删除按钮
      */
-    public abstract void removeSubButton(int position);
+    public abstract void removeSubApp(int position);
 
-    public abstract void addSubButton(FavoritesItem item, String defaultFolderName);
+    public abstract void addSubApp(FavoritesItem item, String defaultFolderName);
 
     protected abstract void addSubItem(int position, FavoritesItem item);
 
@@ -40,31 +41,26 @@ public abstract class FavoritesItem implements Serializable {
 
     public abstract FavoritesItem getSubItem(int position);
 
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        String actionId = getActionId();
-        result = prime * result + ((actionId == null) ? 0 : actionId.hashCode());
-        return result;
-    }
+
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        FavoritesItem other = (FavoritesItem) obj;
-        String actionId = getActionId();
-        if (actionId == null) {
-            if (other.getActionId() != null)
-                return false;
-        } else if (!actionId.equals(other.getActionId()))
-            return false;
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        FavoritesItem myAppItem = (FavoritesItem) o;
+
+        if (getId() != myAppItem.getId()) return false;
+        return getActionId() != null ? getActionId().equals(myAppItem.getActionId()) : myAppItem.getActionId() == null;
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        int result = (int) (getId() ^ (getId() >>> 32));
+        result = 31 * result + (getActionId() != null ? getActionId().hashCode() : 0);
+        return result;
     }
 
 }

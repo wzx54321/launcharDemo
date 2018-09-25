@@ -3,9 +3,9 @@ package com.panxiaohe.springboard.demo.activities;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 
-import com.panxiaohe.springboard.demo.MyViewPager;
 import com.panxiaohe.springboard.demo.R;
 import com.panxiaohe.springboard.demo.fragments.HomeAppFragment;
 import com.panxiaohe.springboard.demo.fragments.LeftContentFragment;
@@ -45,7 +45,7 @@ public class LauncherActivity extends XinActivity {
 
     @Override
     public void bindUI(View rootView) {
-        MyViewPager mViewPager = findViewById(R.id.page_root);
+        ViewPager mViewPager = findViewById(R.id.page_root);
 
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
             @Override

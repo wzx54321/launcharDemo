@@ -1,4 +1,4 @@
-package com.panxiaohe.springboard.demo;
+package com.panxiaohe.springboard.demo.adapter;
 
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.StateListDrawable;
@@ -11,6 +11,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.panxiaohe.springboard.demo.ImageUtil;
+import com.panxiaohe.springboard.demo.R;
+import com.panxiaohe.springboard.demo.bean.MyAppItem;
 import com.panxiaohe.springboard.library.SpringboardAdapter;
 
 import java.util.ArrayList;
@@ -36,7 +39,7 @@ public class MyAdapter extends SpringboardAdapter<MyAppItem> {
 //        ImageView menu_del = (ImageView)view.findViewById(R.id.menu_del);
         LinearLayout folder = (LinearLayout) view.findViewById(R.id.folder);
 //        FrameLayout menu_container = (FrameLayout) view.findViewById(R.id.menu_container);
-        menu_name.setText(item.getActionName());
+        menu_name.setText(item.getName());
         if (item.isFolder()) {
 //            menu_container.setBackgroundResource(R.drawable.folder_icon);
             menu_icon.setVisibility(View.GONE);
@@ -57,12 +60,13 @@ public class MyAdapter extends SpringboardAdapter<MyAppItem> {
                 }
             }
         } else {
-//            menu_container.setBackgroundResource(R.drawable.folder_icon);
-//            menu_container.setBackgroundResource(0);
             menu_icon.setVisibility(View.VISIBLE);
             folder.setVisibility(View.GONE);
-            StateListDrawable drawable = ImageUtil.getStateListDrawable(item.getIcon(), view.getContext());
-            menu_icon.setImageDrawable(drawable);
+
+                StateListDrawable drawable = ImageUtil.getStateListDrawable(item.getIcon(), view.getContext());
+                menu_icon.setImageDrawable(drawable);
+
+
         }
     }
 
@@ -80,7 +84,7 @@ public class MyAdapter extends SpringboardAdapter<MyAppItem> {
 //        ImageView menu_del = (ImageView)view.findViewById(R.id.menu_del);
         LinearLayout folder = (LinearLayout) view.findViewById(R.id.folder);
 //        FrameLayout menu_container = (FrameLayout) view.findViewById(R.id.menu_container);
-        menu_name.setText(item.getActionName());
+        menu_name.setText(item.getName());
         if (item.isFolder()) {
 //            menu_container.setBackgroundResource(R.drawable.folder_icon);
             menu_icon.setVisibility(View.GONE);
