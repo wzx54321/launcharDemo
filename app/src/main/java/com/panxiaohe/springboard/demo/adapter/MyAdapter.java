@@ -16,9 +16,9 @@ import com.panxiaohe.springboard.library.SpringboardAdapter;
 import java.util.ArrayList;
 
 
-public class MyAdapter extends SpringboardAdapter<MyButtonItem> {
+public class MyAdapter extends SpringboardAdapter<MyAppItem> {
 
-    public MyAdapter(ArrayList<MyButtonItem> items) {
+    public MyAdapter(ArrayList<MyAppItem> items) {
         setItems(items);
     }
 
@@ -29,7 +29,7 @@ public class MyAdapter extends SpringboardAdapter<MyButtonItem> {
 
     @Override
     public void configItemView(int position, FrameLayout view) {
-        MyButtonItem item = getItem(position);
+        MyAppItem item = getItem(position);
         ImageView menu_icon = (ImageView) view.findViewById(R.id.menu_icon);
 //        ImageView menu_redDot = (ImageView)view.findViewById(R.id.redDot);
         TextView menu_name = (TextView) view.findViewById(R.id.menu_name);
@@ -48,7 +48,7 @@ public class MyAdapter extends SpringboardAdapter<MyButtonItem> {
             images[3] = (ImageView) folder.findViewById(R.id.folder_button4);
             for (int i = 0; i < 4; i++) {
                 if (item.getSubItemCount() > i) {
-                    MyButtonItem button = item.getSubItem(i);
+                    MyAppItem button = item.getSubItem(i);
                     Drawable drawable = view.getResources().getDrawable(button.getIcon());
                     images[i].setImageDrawable(drawable);
                     images[i].setVisibility(View.VISIBLE);
@@ -73,7 +73,7 @@ public class MyAdapter extends SpringboardAdapter<MyButtonItem> {
 
     @Override
     public void configSubItemView(int folderPosition, int position, FrameLayout view) {
-        MyButtonItem item = getSubItem(folderPosition, position);
+        MyAppItem item = getSubItem(folderPosition, position);
         ImageView menu_icon = (ImageView) view.findViewById(R.id.menu_icon);
 //        ImageView menu_redDot = (ImageView)view.findViewById(R.id.redDot);
         TextView menu_name = (TextView) view.findViewById(R.id.menu_name);
@@ -92,7 +92,7 @@ public class MyAdapter extends SpringboardAdapter<MyButtonItem> {
             images[3] = (ImageView) folder.findViewById(R.id.folder_button4);
             for (int i = 0; i < 4; i++) {
                 if (item.getSubItemCount() > i) {
-                    MyButtonItem button = item.getSubItem(i);
+                    MyAppItem button = item.getSubItem(i);
                     Drawable drawable = view.getResources().getDrawable(button.getIcon());
                     images[i].setImageDrawable(drawable);
                     images[i].setVisibility(View.VISIBLE);
