@@ -1,6 +1,11 @@
 package com.panxiaohe.springboard.demo.P;
 // 正确的项目
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.support.annotation.DrawableRes;
+
 import com.panxiaohe.springboard.demo.M.ModelHome;
 import com.panxiaohe.springboard.demo.bean.MyAppItem;
 import com.panxiaohe.springboard.demo.fragments.HomeAppFragment;
@@ -9,7 +14,15 @@ import com.panxiaohe.springboard.library.SpringboardAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import xin.framework.mvp.PresentImpl;
+import xin.framework.utils.android.BlurUtils;
+import xin.framework.utils.android.ImageResizer;
+import xin.framework.utils.android.ScreenUtils;
 
 /**
  * 作者：xin on 2018/9/21 10:26
@@ -114,7 +127,6 @@ public class PHome extends PresentImpl<HomeAppFragment> implements SpringboardAd
     public void onDeleteFolderItem(MyAppItem folder, ArrayList<MyAppItem> myAppItems, MyAppItem itemBeRemove) {// ok
 
 
-
         itemBeRemove.setDisplay(false);
         itemBeRemove.setSort(Integer.MAX_VALUE);
         itemBeRemove.setFolderSort(Integer.MAX_VALUE);
@@ -166,8 +178,33 @@ public class PHome extends PresentImpl<HomeAppFragment> implements SpringboardAd
     }
 
 
+    /**
+     * 创建高斯模糊背景
+     *
+     * @param context
+     */
+    public Observable<Bitmap> createBlurBg(final Context context, final @DrawableRes int bgRes) {
+        return createBlurBg(context, bgRes, 25);
+    }
 
 
+    public Observable<Bitmap> createBlurBg(final Context context, final @DrawableRes int bgRes, final int radius) {
+        return Observable.create(new ObservableOnSubscribe<Bitmap>() {
+            @Override
+            public void subscribe(ObservableEmitter<Bitmap> emitter) {
+
+                Bitmap bitmap = new ImageResizer(context, ScreenUtils.getScreenInfo()[0], ScreenUtils.dp2px(60)).
+                        processBitmap(bgRes);
+                int mRadius = radius > 25 ? 25 : radius;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                    bitmap = BlurUtils.rsBlur(context, bitmap, mRadius);
+                } else {
+                    bitmap = BlurUtils.blur(bitmap, mRadius);
+                }
+                emitter.onNext(bitmap);
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
+    }
 
 
 }

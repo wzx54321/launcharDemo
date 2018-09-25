@@ -70,7 +70,7 @@ public class ModelHome {
         myApps.add(new MyAppItem("8", "公积金", "icon_9"));
         myApps.add(new MyAppItem("9", "公园景区", "icon_10"));
         myApps.add(new MyAppItem("10", "惠民资金", "icon_11"));
-      /*  myApps.add(new MyAppItem("11", "机动车维修点", "icon_12"));
+        myApps.add(new MyAppItem("11", "机动车维修点", "icon_12"));
         myApps.add(new MyAppItem("12", "健康证查询", "icon_13"));
         myApps.add(new MyAppItem("13", "交警服务", "icon_14"));
         myApps.add(new MyAppItem("14", "交通出行", "icon_15"));
@@ -108,8 +108,8 @@ public class ModelHome {
         myApps.add(new MyAppItem("46", "政民互动", "icon_47"));
         myApps.add(new MyAppItem("47", "职业健康查询", "icon_48"));
         myApps.add(new MyAppItem("48", "中考查询", "icon_49"));
-        myApps.add(new MyAppItem("49", "周边服务", "icon_50"));*/
-        myApps.add(new MyAppItem("50", "添加", "icon_add"));
+        myApps.add(new MyAppItem("49", "周边服务", "icon_50"));
+      //  myApps.add(new MyAppItem("50", "添加", "icon_add"));
 
         for (int i = 0; i < myApps.size(); i++) {
             myApps.get(i).setSort(i);

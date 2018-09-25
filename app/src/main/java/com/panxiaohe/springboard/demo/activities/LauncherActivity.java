@@ -32,6 +32,7 @@ public class LauncherActivity extends XinActivity {
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         SysUtils.hideBottomUIMenu(this);
+        StatusBarUtil.darkMode(this,false);
     }
 
     @Override
@@ -84,17 +85,14 @@ public class LauncherActivity extends XinActivity {
         super.onWindowFocusChanged(hasFocus);
         SysUtils.hideBottomUIMenu(this);
         StatusBarUtil.immersive(getWindow());
+        StatusBarUtil.darkMode(this,false);
     }
 
 
     @Override
     public void onBackPressed() {
-       /* if (mHomeAppFragment != null &&
-                mHomeAppFragment.isBackPressed()) {
-            super.onBackPressed();
-        }*/
 
-        moveTaskToBack(false)
-        ;
+
+        moveTaskToBack(false);
     }
 }

@@ -1,12 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg__1"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
     >
+
+
+    <RelativeLayout
+        android:id="@+id/title_bar"
+        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="bottom|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="bottom|center_horizontal"
+                android:maxWidth="100dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                tools:text="公民"/>
+
+
+            <View
+                android:layout_width="50dp"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/white"
+                android:maxWidth="100dp"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btn_more"
+            android:layout_width="35dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="16dp"
+            android:src="@drawable/btn_more"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/bottom_layout"
@@ -14,14 +61,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="16dp">
+
 
         <ImageView
             android:id="@+id/btn_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icon_4"
+            android:src="@drawable/tab1"
             />
 
         <ImageView
@@ -29,7 +79,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icon_9"
+            android:src="@drawable/tab2"
+            />
+
+        <ImageView
+            android:id="@+id/btn_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/tab5"
             />
 
         <ImageView
@@ -37,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icon_19"
+            android:src="@drawable/tab3"
             />
 
         <ImageView
@@ -45,27 +103,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/icon_2"
+            android:src="@drawable/tab4"
             />
 
 
     </LinearLayout>
 
     <com.panxiaohe.springboard.library.DotView
-        android:layout_margin="16dp"
-        android:layout_above="@+id/bottom_layout"
         android:id="@+id/page_indicator"
-        android:layout_centerHorizontal="true"
         android:layout_width="match_parent"
-        android:layout_height="40dp"/>
+        android:layout_height="40dp"
+        android:layout_above="@+id/bottom_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="16dp"/>
 
     <com.panxiaohe.springboard.library.MenuView
         android:id="@+id/springboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/page_indicator"
+        android:layout_above="@id/page_indicator"
+        android:layout_below="@id/title_bar"
         android:layout_centerInParent="true"
-        android:paddingBottom="40dp"
+        android:paddingBottom="30dp"
         android:paddingTop="30dp"
         app:column_count="4"
         app:default_folder_name="@string/folder_name"
@@ -76,12 +135,12 @@
         app:folder_edittext_textcolor="@android:color/black"
         app:folder_edittext_textsize="16sp"
         app:folder_row_count="3"
-        app:is_last_item_stable="true"
-        app:row_count="5"/>
+        app:row_count="4"/>
 
     <!--
      app:folder_dialog_background="@android:color/transparent"
     app:folder_edittext_background="@drawable/ugly_edittext_bg"
+      app:is_last_item_stable="true"
         app:folder_view_background="@drawable/ugly_folder_background"-->
     <!--app:stable_header_count="3"-->
     <!--app:divider_color =""-->
