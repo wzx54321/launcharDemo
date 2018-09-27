@@ -6,7 +6,7 @@ android {
     buildToolsVersion '27.0.3'
 
     defaultConfig {
-        applicationId "xin.ui.launchar"
+        applicationId "xin.ui.launcher"
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 1
@@ -18,10 +18,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
 }
+
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':library')
     implementation 'com.android.support:support-v4:27.1.1'
+    implementation files('libs/Msc.jar')
+    implementation files('libs/Sunflower.jar')
+    api project(':XinFrameworkLib')
 }

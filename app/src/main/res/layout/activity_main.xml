@@ -4,15 +4,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    >
+    android:layout_height="match_parent">
 
 
     <RelativeLayout
         android:id="@+id/title_bar"
-        android:layout_height="60dp"
         android:layout_width="match_parent"
+        android:layout_height="60dp"
         android:layout_alignParentTop="true">
 
         <LinearLayout
@@ -45,10 +43,10 @@
 
         <ImageView
             android:id="@+id/btn_more"
-            android:layout_width="35dp"
-            android:layout_height="36dp"
-            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
             android:layout_marginBottom="5dp"
             android:layout_marginRight="16dp"
             android:src="@drawable/btn_more"/>
@@ -60,10 +58,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:orientation="horizontal"
-        android:paddingBottom="10dp"
-        android:paddingTop="16dp">
+        android:paddingBottom="30dp"
+        android:paddingTop="10dp">
 
 
         <ImageView
@@ -82,13 +79,15 @@
             android:src="@drawable/tab2"
             />
 
+
         <ImageView
-            android:id="@+id/btn_center"
+            android:id="@+id/btn_audio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:src="@drawable/tab5"
-            />
+            android:clickable="true"
+            android:focusable="true"/>
+
 
         <ImageView
             android:id="@+id/btn_3"
@@ -109,7 +108,7 @@
 
     </LinearLayout>
 
-    <com.panxiaohe.springboard.library.DotView
+    <com.xin.launcher.widget.springboard.DotView
         android:id="@+id/page_indicator"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -117,7 +116,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"/>
 
-    <com.panxiaohe.springboard.library.MenuView
+    <com.xin.launcher.widget.springboard.MenuView
         android:id="@+id/springboard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -132,8 +131,8 @@
         app:divider_color="@color/default_divider_color"
         app:divider_width="0dp"
         app:folder_column_count="3"
-        app:folder_edittext_textcolor="@android:color/black"
-        app:folder_edittext_textsize="16sp"
+        app:folder_edittext_textcolor="@color/text_color"
+        app:folder_edittext_textsize="22sp"
         app:folder_row_count="3"
         app:row_count="4"/>
 

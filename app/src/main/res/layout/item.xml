@@ -10,16 +10,16 @@
     <FrameLayout
         android:id="@id/shake_zone_id"
         android:layout_width="match_parent"
-        android:layout_gravity="center"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingRight="2dp"
-            android:paddingLeft="2dp"
             android:layout_gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp">
 
             <FrameLayout
                 android:id="@id/center_zone_id"
@@ -36,12 +36,14 @@
                     android:src="@drawable/account_bg"
                     android:visibility="gone"
                     tools:ignore="ContentDescription"/>
+
                 <!--文件夹-->
                 <LinearLayout
                     android:id="@+id/folder"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/folder_icon"
+                    android:padding="2dp"
+                    android:background="@drawable/folder_background"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -50,20 +52,34 @@
                         android:layout_weight="1"
                         android:gravity="center">
 
-                        <ImageView
+                        <com.xin.launcher.widget.SquareImageView
                             android:id="@+id/folder_button1"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/account_bg"
-                            android:visibility="invisible"/>
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:visibility="invisible"
+                            tools:src="@drawable/icon_9"/>
 
-                        <ImageView
+                        <com.xin.launcher.widget.SquareImageView
                             android:id="@+id/folder_button2"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@drawable/account_bg"
-                            android:visibility="invisible"/>
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:layout_marginLeft="1dp"
+                            android:visibility="invisible"
+                            tools:src="@drawable/icon_9"/>
+
+                        <com.xin.launcher.widget.SquareImageView
+                            android:id="@+id/folder_button3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="1dp"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:visibility="invisible"
+                            tools:src="@drawable/icon_9"/>
 
                     </LinearLayout>
 
@@ -71,24 +87,79 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
+                        android:layout_marginTop="2dp"
                         android:gravity="center">
 
-                        <ImageView
-                            android:id="@+id/folder_button3"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/account_bg"
-                            android:visibility="invisible"/>
-
-                        <ImageView
+                        <com.xin.launcher.widget.SquareImageView
                             android:id="@+id/folder_button4"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginLeft="8dp"
-                            android:src="@drawable/account_bg"
-                            android:visibility="invisible"/>
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:visibility="invisible"
+                            tools:src="@drawable/icon_9"/>
+
+                        <com.xin.launcher.widget.SquareImageView
+                            android:id="@+id/folder_button5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="1dp"
+                            android:scaleType="fitXY"
+                            android:visibility="invisible"
+                            tools:src="@drawable/icon_9"/>
+
+                        <com.xin.launcher.widget.SquareImageView
+                            android:id="@+id/folder_button6"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="1dp"
+                            android:scaleType="fitXY"
+                            android:visibility="invisible"
+                            tools:src="@drawable/icon_9"/>
 
                     </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:layout_marginTop="2dp"
+                        android:gravity="center">
+
+                        <com.xin.launcher.widget.SquareImageView
+                            android:id="@+id/folder_button7"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:visibility="invisible"
+                            tools:src="@drawable/icon_9"/>
+
+                        <com.xin.launcher.widget.SquareImageView
+                            android:id="@+id/folder_button8"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:layout_marginLeft="1dp"
+                            android:visibility="invisible"
+                            tools:src="@drawable/icon_9"/>
+
+                        <com.xin.launcher.widget.SquareImageView
+                            android:id="@+id/folder_button9"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY"
+                            android:layout_marginLeft="1dp"
+                            android:visibility="invisible"
+                            tools:src="@drawable/icon_9"/>
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <!--标记-->
@@ -107,9 +178,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:ellipsize="end"
-                android:singleLine="true"
                 android:gravity="center"
-                android:textColor="@android:color/white"
+                android:singleLine="true"
+                android:textColor="@color/text_color"
                 android:textSize="12sp"
                 tools:text="系统设置"/>
 
