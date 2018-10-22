@@ -22,6 +22,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Scroller;
 
+import xin.framework.utils.android.Loger.Log;
 import xin.framework.utils.android.ScreenUtils;
 import xin.ui.launcher.R;
 
@@ -257,7 +258,7 @@ public abstract class SpringboardView extends ViewGroup {
 
                 int col = i % colCount;
 
-                int left = /*getPaddingLeft() +*/ page * (measuredWidth + page_divider_width) + col
+                int left = getPaddingLeft() +  page * (measuredWidth + page_divider_width) + col
                         * (dividerWidth + childView.getMeasuredWidth()) + dividerWidth;
 
                 int top = getPaddingTop() + dividerWidth + row * (dividerWidth + childView.getMeasuredHeight());
@@ -374,6 +375,7 @@ public abstract class SpringboardView extends ViewGroup {
                     case DRAGGING:
                         int viewX = x - dragPointX + dragOffsetX;
                         int viewY = y - dragPointY + dragOffsetY;
+                        Log.e("viewX:"+viewX);
                         onFling(viewX, viewY);
                         mVelocityTracker.addMovement(event);
                         mVelocityTracker.computeCurrentVelocity(1000, mMaximumVelocity);
@@ -576,11 +578,11 @@ public abstract class SpringboardView extends ViewGroup {
 
     protected void countPageChange(int x) {
 //        Log.e("countPageChange"," x = " +x );
-        if (x > getWidth() - 40
+        if (x > getWidth() - 10
                 && mCurScreen < getTotalPage() - 1 && mScroller.isFinished()
                 && x > startX + 10) {
             snapToScreen(mCurScreen + 1);
-        } else if (x < 40
+        } else if (x < 10
                 && mCurScreen > 0 && mScroller.isFinished() && x < startX - 10) {
             snapToScreen(mCurScreen - 1);
         }

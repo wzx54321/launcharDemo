@@ -118,6 +118,8 @@
 
     <com.xin.launcher.widget.springboard.MenuView
         android:id="@+id/springboard"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/page_indicator"

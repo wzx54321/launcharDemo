@@ -53,7 +53,8 @@ import xin.framework.utils.android.SysUtils;
  * <p>
  * 邮箱：ittfxin@126.com
  */
-public class PHome extends PresentImpl<HomeAppFragment> implements SpringboardAdapter.DataChangeListener<MyAppItem> {
+public class
+PHome extends PresentImpl<HomeAppFragment> implements SpringboardAdapter.DataChangeListener<MyAppItem> {
 
     private ModelHome model;
     private View.OnTouchListener mOnTouchListener;
